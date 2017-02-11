@@ -1,7 +1,16 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 
 <?php
+$servername ="localhost";
+$username="root";
+$dbname ="myDB";
 
+// Create connection
+$conn = mysqli_connect($servername, $username,"", $dbname);
+// Check connection
+if(!$conn) {
+    die("Connection failed: ". mysqli_connect_error());
+}
   if(isset($_COOKIE['ID_site'])){
    $username = $_COOKIE['ID_site'];
    $today = date("Y-m-d H:i:s");  

@@ -58,46 +58,34 @@
                }
         }
   }
-   
 ?>
+<style>
+    .h {display: none}    
+</style>
 <a href="logout.php"><input type="button" value="LogOut"></a>
 <div class="container">
   <h1>The Online Courses</h1>
    <div class="panel panel-default">
     <h1 class="panel-heading">PHP Course</h1>
     <h3 class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae saepe dolor quibusdam vitae consequatur veniam minus mollitia provident consectetur amet doloribus eum facere quis iusto quasi temporibus architecto consequuntur, a.</h3>
-    
-    
-     <form class="btn btn-default" id="pay" action="pay.php" method="POST">
-      <script
-        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-        data-amount="1000"
-        data-name="Payment"
-        data-description="Widget"
-        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-        data-locale="auto"
-        data-zip-code="false">
-      </script>
-    </form>
+
+         <form action="payment.php" method="post">
+             <input class="h" type="text" name="amount" value="1000">
+             <input class="h" type="text" name="desc" value="PHP Course">
+             <input type="submit" value="Subscripe for this course">
+         </form>
+
     <a href="course.php">if you already bought it</a>
    </div>
    
     <div class="panel panel-default">
     <h1 class="panel-heading">AngularJs Course</h1>
     <h3 class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae saepe dolor quibusdam vitae consequatur veniam minus mollitia provident consectetur amet doloribus eum facere quis iusto quasi temporibus architecto consequuntur, a.</h3>
-     <form class="btn btn-default" id="pay1" action="pay_angular.php" method="POST">
-      <script
-        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-        data-amount="1500"
-        data-name="Payment"
-        data-description="Widget"
-        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-        data-locale="auto"
-        data-zip-code="false">
-      </script>
-    </form>
+         <form action="payment.php" method="post">
+             <input class="h" type="text" name="amount" value="1500">
+             <input class="h" type="text" name="desc" value="AngularJs Course">
+             <input type="submit" value="Subscripe for this course">
+         </form>
     <a href="course.php">if you already bought it</a>
    </div>
 
