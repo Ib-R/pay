@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 
 <?php
+ session_start();
 $servername ="localhost";
 $username="root";
 $dbname ="myDB";
@@ -14,16 +15,18 @@ if(!$conn) {
   if(isset($_COOKIE['ID_site'])){
    $username = $_COOKIE['ID_site'];
    $today = date("Y-m-d H:i:s");  
-   $sql ="SELECT * FROM courses WHERE course1 ='$username'";
+   $sql ="SELECT * FROM courses WHERE PHP ='$username'";
    $query = mysqli_query($conn,$sql)or die(mysqli_error());
 //check if the username is in the db
    $checkName = mysqli_num_rows($query);
    $checkAccess = mysqli_fetch_assoc($query);
 
             if($checkName != 0){
-               if($checkAccess['course1'] == $username && $today < $checkAccess['time'] ){
+               if($checkAccess['PHP'] == $username && $today < $checkAccess['time'] ){
                    $msg = "Welcome ".$username;
                }else{
+                   $_SESSION['price'] =1000;
+                   $_SESSION['name'] ="PHP";
                    header("Location: expire.php");
                }
             }else{

@@ -42,19 +42,18 @@
    $sql ="SELECT * FROM courses";
    $query = mysqli_query($conn,$sql)or die(mysqli_error());
 //check if the username is in the db
-   $checkName = mysqli_num_rows($query);
    while($checkAccess = mysqli_fetch_assoc($query)){
          // course1 check
-               if($checkAccess['course1'] == $username){
+               if($checkAccess['PHP'] == $username){ 
                     ?>
-                    <style>#pay{display:none;}</style>
+                      <style>#PHP{display: none;}</style>
                    <?php
                }
         //couse2 check     
-             if($checkAccess['course2'] == $username){
+             if($checkAccess['AngularJs'] == $username){
                     ?>
-                    <style>#pay1{display:none;}</style>
-                   <?php
+                    <script>window.onload =function(){document.getElementById("AngularJs").disabled = true;};</script>
+                    <?php
                }
         }
   }
@@ -62,33 +61,34 @@
 <style>
     .h {display: none}    
 </style>
-<a href="logout.php"><input type="button" value="LogOut"></a>
+<a href="logout.php"><input class="btn btn-default" type="button" value="LogOut"></a>
 <div class="container">
   <h1>The Online Courses</h1>
    <div class="panel panel-default">
     <h1 class="panel-heading">PHP Course</h1>
     <h3 class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae saepe dolor quibusdam vitae consequatur veniam minus mollitia provident consectetur amet doloribus eum facere quis iusto quasi temporibus architecto consequuntur, a.</h3>
-
+<?php echo $checkAccess['PHP'];?>
+        
          <form action="payment.php" method="post">
              <input class="h" type="text" name="amount" value="1000">
-             <input class="h" type="text" name="desc" value="PHP Course">
-             <input type="submit" value="Subscripe for this course">
+             <input class="h" type="text" name="desc" value="PHP">
+             <input class="btn btn-default" id="PHP"  type="submit" value="Subscripe for this course">
          </form>
 
-    <a href="course.php">if you already bought it</a>
+    <a href="course.php"><input class="btn btn-default" type="button" value="Subscriped"></a>
    </div>
    
     <div class="panel panel-default">
     <h1 class="panel-heading">AngularJs Course</h1>
     <h3 class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae saepe dolor quibusdam vitae consequatur veniam minus mollitia provident consectetur amet doloribus eum facere quis iusto quasi temporibus architecto consequuntur, a.</h3>
-         <form action="payment.php" method="post">
+        
+         <form  action="payment.php" method="post">
              <input class="h" type="text" name="amount" value="1500">
-             <input class="h" type="text" name="desc" value="AngularJs Course">
-             <input type="submit" value="Subscripe for this course">
+             <input class="h" type="text" name="desc" value="AngularJs">
+             <input class="btn btn-default" id="AngularJs" type="submit" value="Subscripe for this course">
          </form>
-    <a href="course.php">if you already bought it</a>
-   </div>
-
+     <a href="course.php"><input class="btn btn-default" type="button" value="Subscriped"></a>
+    </div>
 </div>
 </body>
 </html>

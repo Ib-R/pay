@@ -12,7 +12,7 @@
 
 // check if the user already bought the course
 $usercheck = $_COOKIE['ID_site'];
-$sql ="SELECT course1 FROM courses WHERE course1 ='$usercheck'";
+$sql ="SELECT PHP FROM courses WHERE PHP ='$usercheck'";
 $query = mysqli_query($conn,$sql)
     or die(mysqli_error($conn));
 $check = mysqli_num_rows($query);
@@ -44,7 +44,7 @@ if ($check != 0) {
 
     $user = $_COOKIE['ID_site'];
     $time = date("Y-m-d H:i:s",strtotime("+5 minute"));   
-    $sql="INSERT INTO courses (course1, time) VALUES ('$user','$time')";
+    $sql="INSERT INTO courses (PHP, time) VALUES ('$user','$time')";
     $add= mysqli_query($conn,$sql);
     header("Location: course.php");
   }
